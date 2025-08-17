@@ -1,2 +1,2 @@
-<a href="https://www.youtube.com/watch?v=FafplUXBGBE" target="_blank"><img width="350" alt="Variables-tipos-datos" src="https://github.com/user-attachments/assets/6f2cc24a-8889-47f0-9ded-a5f84b6be791" /></a>&nbsp;
-<a href="https://www.youtube.com/watch?v=rXLBxdi_JVA" target="_blank"><img width="350" alt="Salida-datos-por-pantalla" src="https://github.com/user-attachments/assets/26b5cbb0-1a29-4b08-a2d0-555db09b68bb" /></a>
+<a href="https://www.youtube.com/watch?v=FafplUXBGBE" target="_blank"><img width="350" alt="Variables-tipos-datos" src="https://github.com/user-attachments/assets/e3e48d5f-9962-43b4-aa99-edb7627893b1" /></a>&nbsp;
+<a href="https://www.youtube.com/watch?v=rXLBxdi_JVA" target="_blank"><img width="350" alt="Salida-datos-por-pantalla" src="https://github.com/user-attachments/assets/545caf91-9d0f-4f73-a10c-b027a5c616c2" /></a>
