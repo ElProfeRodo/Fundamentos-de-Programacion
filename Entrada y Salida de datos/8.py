@@ -1,11 +1,11 @@
 """
 Calcular la propina (10%) por un pedido en un restaurante. Debe solicitar el nombre de 3 productos, el precio unitario de cada uno y las cantidades solicitadas.
 Mostrar por pantalla el siguiente detalle:
-2 x completo		$2.000
-3 x bebidas		$1.100
-1 x postre			$1.500
-Total del pedido		$8.800
-Total con propina	$9.680
+2 x completo       $2.000
+3 x bebidas        $1.100
+1 x postre         $1.500
+Total del pedido   $8.800
+Total con propina  $9.680
 """
 
 prod1 = input("Ingresa producto 1: ")
