@@ -4,7 +4,7 @@ Mostrar por pantalla el siguiente detalle:
 2 x completo       $2.000
 3 x bebidas        $1.100
 1 x postre         $1.500
-Total del pedido   $8.800
+Total pedido       $8.800
 Total con propina  $9.680
 """
 
