@@ -2,9 +2,9 @@ productos = []
 
 def agregar_producto(productos:list):
     nombre = input("Nombre: ")
-    while not nombre.isalpha() or len(nombre) < 10:
+    while not nombre.isalpha() or len(nombre) < 5:
         nombre = input("Nombre: ")
-    
+        
     precio = input("Precio: ")
     while not precio.isdigit() or int(precio) < 0:
         precio = input("Precio: ")
@@ -26,4 +26,4 @@ while True:
     opcion = input("Opción: ")
     
     if opcion == "1":
-        print()
+        agregar_producto(productos)
