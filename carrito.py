@@ -34,7 +34,7 @@ while True:
         print()
     elif opcion == "4":
         print()
-    elif opcion == "5"
+    elif opcion == "5":
         print()
     elif opcion == "6":
         print()
@@ -42,3 +42,4 @@ while True:
         break
     else:
         print("No es una opción valida, intente de nuevo...")
+
