@@ -22,8 +22,23 @@ while True:
     print("4. Eliminar producto")
     print("5. Buscar producto")
     print("6. Listar productos")
+    print("7. Salir del menu")
 
     opcion = input("Opción: ")
     
     if opcion == "1":
         agregar_producto(productos)
+    elif opcion == "2":
+        print()
+    elif opcion == "3":
+        print()
+    elif opcion == "4":
+        print()
+    elif opcion == "5"
+        print()
+    elif opcion == "6":
+        print()
+    elif opcion == "7":
+        break
+    else:
+        print("No es una opción valida, intente de nuevo...")
