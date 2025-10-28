@@ -6,7 +6,7 @@ def agregar_producto(productos:list):
     codigo = randint(100, 999)
 
     nombre = input("Nombre: ")
-    while not nombre.isalpha() or len(nombre) < 5:
+    while not nombre.isalpha() or len(nombre) < 10:
         nombre = input("Nombre: ")
         
     precio = input("Precio: ")
@@ -18,6 +18,34 @@ def agregar_producto(productos:list):
         stock = input("Stock: ")
 
     productos.append({'codigo': codigo, 'nombre': nombre, 'precio': precio, 'stock': stock})
+
+def editar_producto(productos: list):
+    nombre_buscar = input("Ingrese el nombre del producto que desea editar: ")
+    for i in productos:
+        if i['nombre'] == nombre_buscar:
+            print(f"Producto encontrado: {i['nombre']}")
+            
+            nuevo_nombre = input("Nuevo nombre (Enter para mantener actual): ")
+            if nuevo_nombre != "":
+                while not nuevo_nombre.isalpha() or len(nuevo_nombre) < 10:
+                    nuevo_nombre = input("Nombre inválido, ingrese nuevamente: ")
+                i['nombre'] = nuevo_nombre
+
+            nuevo_precio = input("Nuevo precio (Enter para mantener actual): ")
+            if nuevo_precio != "":
+                while not nuevo_precio.isdigit() or int(nuevo_precio) < 0:
+                    nuevo_precio = input("Precio inválido, ingrese nuevamente: ")
+                i['precio'] = nuevo_precio
+
+            nuevo_stock = input("Nuevo stock (Enter para mantener actual): ")
+            if nuevo_stock != "":
+                while not nuevo_stock.isdigit() or int(nuevo_stock) < 0:
+                    nuevo_stock = input("Stock inválido, ingrese nuevamente: ")
+                i['stock'] = nuevo_stock
+
+            print("Producto actualizado correctamente.")
+            return
+    print("No se encontró un producto con ese nombre.")
 
 def listar_producto():
     print(productos)
@@ -36,7 +64,7 @@ while True:
     if opcion == "1":
         agregar_producto(productos)
     elif opcion == "2":
-        print()
+        editar_producto(productos)
     elif opcion == "3":
         print()
     elif opcion == "4":
