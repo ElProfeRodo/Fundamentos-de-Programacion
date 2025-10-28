@@ -14,6 +14,8 @@ def agregar_producto(productos:list):
         stock = input("Stock: ")
 
     productos.append({'nombre': nombre, 'precio': precio, 'stock': stock})
+def listar_producto():
+    print(productos)
 
 while True:
     print("1. Agregar producto")
@@ -37,8 +39,9 @@ while True:
     elif opcion == "5":
         print()
     elif opcion == "6":
-        print()
+        listar_producto()
     elif opcion == "7":
         break
     else:
         print("No es una opción valida, intente de nuevo...")
+
