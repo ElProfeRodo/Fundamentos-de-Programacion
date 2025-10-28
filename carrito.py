@@ -1,6 +1,10 @@
+from random import randint
+
 productos = []
 
 def agregar_producto(productos:list):
+    codigo = randint(100, 999)
+
     nombre = input("Nombre: ")
     while not nombre.isalpha() or len(nombre) < 5:
         nombre = input("Nombre: ")
@@ -13,7 +17,8 @@ def agregar_producto(productos:list):
     while not stock.isdigit() or int(stock) < 0:
         stock = input("Stock: ")
 
-    productos.append({'nombre': nombre, 'precio': precio, 'stock': stock})
+    productos.append({'codigo': codigo, 'nombre': nombre, 'precio': precio, 'stock': stock})
+
 def listar_producto():
     print(productos)
 
@@ -44,4 +49,3 @@ while True:
         break
     else:
         print("No es una opción valida, intente de nuevo...")
-
