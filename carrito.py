@@ -42,4 +42,3 @@ while True:
         break
     else:
         print("No es una opción valida, intente de nuevo...")
-
