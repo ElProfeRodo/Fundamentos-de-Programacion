@@ -46,6 +46,7 @@ def editar_producto(productos: list):
             print("Producto actualizado correctamente.")
             return
     print("No se encontró un producto con ese nombre.")
+    
 def buscar_producto(productos):
     if not productos:
         print("\nNo hay productos registrados.\n")
@@ -91,4 +92,5 @@ while True:
         break
     else:
         print("No es una opción valida, intente de nuevo...")
+
 
