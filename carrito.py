@@ -1,12 +1,20 @@
+from os import system
 from random import randint
+import random
+system('cls')
+
 
 productos = []
+añadidos=0
+excludes = []
 
-def agregar_producto(productos:list):
-    codigo = randint(100, 999)
-
+def agregar_producto(productos:list, excludes):
+    codigo = random.randint(100, 999)
+    while codigo in excludes:
+        codigo = random.randint(100, 999)
+    
     nombre = input("Nombre: ")
-    while not nombre.isalpha() or len(nombre) < 10:
+    while not nombre.isalpha() or len(nombre) < 4:
         nombre = input("Nombre: ")
         
     precio = input("Precio: ")
@@ -16,8 +24,9 @@ def agregar_producto(productos:list):
     stock = input("Stock: ")
     while not stock.isdigit() or int(stock) < 0:
         stock = input("Stock: ")
-
+    
     productos.append({'codigo': codigo, 'nombre': nombre, 'precio': precio, 'stock': stock})
+
 
 def editar_producto(productos: list):
     nombre_buscar = input("Ingrese el nombre del producto que desea editar: ")
@@ -62,8 +71,12 @@ def buscar_producto(productos):
             return
 
     print(f"\nProducto '{nombre_buscar}' no encontrado.\n")
+
 def listar_producto():
-    print(productos)
+    intentos=0
+    while añadidos>intentos:
+        print(f"Codigo: {productos[intentos]['codigo']}  Nombre: {productos[intentos]['nombre']}  Stock: {productos[intentos]['stock']}  Precio: {productos[intentos]['precio']}")
+        intentos+=1
 
 while True:
     print("1. Agregar producto")
@@ -77,7 +90,9 @@ while True:
     opcion = input("Opción: ")
     
     if opcion == "1":
-        agregar_producto(productos)
+        agregar_producto(productos, excludes)
+        excludes.append({productos[añadidos]['codigo']})
+        añadidos+=1
     elif opcion == "2":
         editar_producto(productos)
     elif opcion == "3":
@@ -92,5 +107,6 @@ while True:
         break
     else:
         print("No es una opción valida, intente de nuevo...")
+
 
 
