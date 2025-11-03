@@ -56,21 +56,19 @@ def editar_producto(productos: list):
             return
     print("No se encontró un producto con ese nombre.")
     
-def buscar_producto(productos):
+def buscar_producto(productos, codigo):
+    indice = None
+
     if not productos:
         print("\nNo hay productos registrados.\n")
-        return
+        return None
 
-    nombre_buscar = input("Ingrese el nombre del producto a buscar: ")
-    for producto in productos:
-        if producto['nombre'] == nombre_buscar:
-            print(f"\nProducto encontrado:")
-            print(f"Nombre: {producto['nombre']}")
-            print(f"Precio: ${producto['precio']}")
-            print(f"Stock: {producto['stock']}\n")
-            return
+    for i in range(len(productos)):
+        if productos[i]['codigo'] == codigo:
+            indice = i
+            break
 
-    print(f"\nProducto '{nombre_buscar}' no encontrado.\n")
+    return indice
 
 def listar_producto():
     intentos=0
@@ -107,6 +105,5 @@ while True:
         break
     else:
         print("No es una opción valida, intente de nuevo...")
-
 
 
