@@ -1,69 +1,101 @@
-import random
+from random import randint
 
 lista_productos = []
 
-def crear_producto(lista_productos:list):
-    # Se genera un numero de tres digitos
-    codigo = random.randint(100, 999)
+def agregar_producto(lista_productos:list):
+    nombre = input("Ingrese el nombre del producto: ")
+    precio = int(input("Ingrese el precio del producto: "))
+    stock = int(input("Ingrese el stock de el producto: "))
+    categoria = input("Ingrese la categoria del producto: ")
 
-    while True:
-        nombre = input("Nombre: ")
-        # Se valida que el largo ser mayor o igual a 3
-        if len(nombre) >= 3: 
-            break
-        else:
-            print("El nombre debe tener por lo menos 3 caracteres")
+    diccionario = {
+        "codigo": randint(100, 999),
+        "nombre": nombre,
+        "precio": precio,
+        "stock": stock,
+        "categoria": categoria
+    } 
 
-    precio = input("Precio: ")
-    # Validamos que el precio sean digitos mayores que cero
-    while not precio.isdigit() or int(precio) <= 0:
-        precio = input("Precio: ")
+    lista_productos.append(diccionario)
 
-    stock = input("Stock: ")
-    # Validamos que el stock sean digitos mayores que cero
-    while not stock.isdigit() or int(stock) <= 0:
-        stock = input("Stock: ")
-
-    dicc_producto = {
-        'codigo': codigo,
-        'nombre': nombre,
-        'precio': int(precio),
-        'stock': int(stock)
-    }
-
-    lista_productos.append(dicc_producto)
-
-def editar_producto(lista_productos:list, codigo):
-    indice = buscar_producto(lista_productos, codigo)
+def editar_producto(lista_productos:list):
+    consulta_producto = input("Editar Producto: ")
+    indice = buscar_producto(lista_productos, consulta_producto)
+    
     if indice != None:
         nombre = input("Nombre: ")
         precio = int(input("Precio: "))
         stock = int(input("Stock: "))
+        categoria = input("Categoria: ")
+        
         lista_productos[indice]['nombre'] = nombre
         lista_productos[indice]['precio'] = precio
         lista_productos[indice]['stock'] = stock
+        lista_productos[indice]['categoria'] = categoria
+    else:
+        print("El producto no existe")
 
-def buscar_producto(lista_productos:list, codigo):
+def ver_producto(lista_productos:list):
+    producto = input("Producto: ")
+    indice = buscar_producto(lista_productos, producto)
+    
+    if indice != None:
+        print(f"Código: {lista_productos[indice]['codigo']}")
+        print(f"Nombre: {lista_productos[indice]['nombre']}")
+        print(f"Precio: {lista_productos[indice]['precio']}")
+        print(f"Stock: {lista_productos[indice]['stock']}")
+        print(f"Categoria: {lista_productos[indice]['categoria']}")
+    else:
+        print("El producto no existe")
+
+def listar_productos(lista_productos:list, categoria:str):
+    if len(lista_productos) != 0:
+        for i in range(len(lista_productos)):
+            if categoria == "todos":
+                print(f"Código: {lista_productos[i]['codigo']}")
+                print(f"Nombre: {lista_productos[i]['nombre']}")
+                print(f"Precio: {lista_productos[i]['precio']}")
+                print(f"Stock: {lista_productos[i]['stock']}")
+            elif categoria == lista_productos[i]['categoria']:
+                print(f"Código: {lista_productos[i]['codigo']}")
+                print(f"Nombre: {lista_productos[i]['nombre']}")
+                print(f"Precio: {lista_productos[i]['precio']}")
+                print(f"Stock: {lista_productos[i]['stock']}")
+        print()
+    else:
+        print("No hay productos para mostrar")
+
+def buscar_producto(lista_productos:list, busqueda:str):
     for i in range(len(lista_productos)):
-        if lista_productos[i]['codigo'] == codigo:
+        if lista_productos[i]['nombre'] == busqueda:
             return i
     return None
 
-def listar_productos(lista_productos:list):
-    print("Nombre \t Precio \t Stock")
-    print("--------------------------------")
-    for producto in lista_productos:
-        print(f"{producto['nombre']} \t {producto['precio']} \t\t {producto['stock']}")
-
 while True:
-    # Menú
-    print("1. Crear producto")
-    print("6. Listar productos")
+    print("1. Realizar pedido")
+    print("2. Agregar producto")
+    print("3. Editar producto")
+    print("4. Ver producto")
+    print("5. Listar productos")
+    print("6. Mostrar carrito")
+    print("7. Salir")
+    
     opcion = input("Opción: ")
-
+    
     if opcion == "1":
-        crear_producto(lista_productos)
+        pass
+    elif opcion == "2":
+        agregar_producto(lista_productos)
+    elif opcion == "3":
+        editar_producto(lista_productos)
+    elif opcion == "4":
+        ver_producto(lista_productos)
+    elif opcion == "5":
+        categoria = input("Categoria: ")
+        listar_productos(lista_productos, categoria)
     elif opcion == "6":
-        listar_productos(lista_productos)
+        pass
+    elif opcion == "7":
+        break
     else:
-        print("La opción no existe")
+        print("La opción es incorrecta")
